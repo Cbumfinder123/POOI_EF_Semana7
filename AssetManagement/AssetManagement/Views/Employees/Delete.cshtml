@@ -1,0 +1,29 @@
+﻿@model AssetManagement.Models.Employee
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>First Name</dt>
+        <dd>@Html.DisplayFor(model => model.first_name)</dd>
+        <dt>Last Name</dt>
+        <dd>@Html.DisplayFor(model => model.last_name)</dd>
+        <!-- Repite para los demás campos -->
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

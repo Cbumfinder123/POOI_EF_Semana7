@@ -1,0 +1,30 @@
+﻿@model AssetManagement.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>First Name</dt>
+        <dd>@Html.DisplayFor(model => model.first_name)</dd>
+        <dt>Last Name</dt>
+        <dd>@Html.DisplayFor(model => model.last_name)</dd>
+        <dt>Department</dt>
+        <dd>@Html.DisplayFor(model => model.departament)</dd>
+        <dt>Extension</dt>
+        <dd>@Html.DisplayFor(model => model.extension)</dd>
+        <dt>Email Address</dt>
+        <dd>@Html.DisplayFor(model => model.email_address)</dd>
+        <dt>Other Details</dt>
+        <dd>@Html.DisplayFor(model => model.other_details)</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.employee_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

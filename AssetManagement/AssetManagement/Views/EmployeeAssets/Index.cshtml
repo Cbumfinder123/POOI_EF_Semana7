@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AssetManagement.Models.EmployeeAsset>
+
+@{
+    ViewBag.Title = "Employee Assets";
+}
+
+<h2>Employee Assets</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>Asset ID</th>
+        <th>Employee ID</th>
+        <th>Date Out</th>
+        <th>Date Returned</th>
+        <th>Condition Out</th>
+        <th>Condition Returned</th>
+        <th>Other Details</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AssetId</td>
+            <td>@item.EmployeeId</td>
+            <td>@item.DateOut.ToString("yyyy-MM-dd")</td>
+            <td>@(item.DateReturned.HasValue ? item.DateReturned.Value.ToString("yyyy-MM-dd") : "")</td>
+            <td>@item.ConditionOut</td>
+            <td>@item.ConditionReturned</td>
+            <td>@item.OtherDetails</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { assetId = item.AssetId, employeeId = item.EmployeeId }) |
+                @Html.ActionLink("Details", "Details", new { assetId = item.AssetId, employeeId = item.EmployeeId }) |
+                @Html.ActionLink("Delete", "Delete", new { assetId = item.AssetId, employeeId = item.EmployeeId })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,32 @@
+﻿@model AssetManagement.Models.ITAssetInventory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details IT Asset Inventory</h2>
+
+<div>
+    <h4>ITAssetInventory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Asset ID</dt>
+        <dd>@Html.DisplayFor(model => model.asset_id)</dd>
+
+        <dt>Inventory Date</dt>
+        <dd>@Html.DisplayFor(model => model.inventory_date)</dd>
+
+        <dt>Number Assigned</dt>
+        <dd>@Html.DisplayFor(model => model.number_assigned)</dd>
+
+        <dt>Number in Stock</dt>
+        <dd>@Html.DisplayFor(model => model.number_in_stock)</dd>
+
+        <dt>Other Details</dt>
+        <dd>@Html.DisplayFor(model => model.other_details)</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.it_asset_inventory_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

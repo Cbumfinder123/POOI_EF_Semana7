@@ -1,0 +1,38 @@
+﻿@model AssetManagement.Models.ITAssetInventory
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete IT Asset Inventory</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ITAssetInventory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Asset ID</dt>
+        <dd>@Html.DisplayFor(model => model.asset_id)</dd>
+
+        <dt>Inventory Date</dt>
+        <dd>@Html.DisplayFor(model => model.inventory_date)</dd>
+
+        <dt>Number Assigned</dt>
+        <dd>@Html.DisplayFor(model => model.number_assigned)</dd>
+
+        <dt>Number in Stock</dt>
+        <dd>@Html.DisplayFor(model => model.number_in_stock)</dd>
+
+        <dt>Other Details</dt>
+        <dd>@Html.DisplayFor(model => model.other_details)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AssetManagement.Models.ITAssetInventory>
+
+@{
+    ViewBag.Title = "IT Asset Inventory";
+}
+
+<h2>IT Asset Inventory</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Asset ID</th>
+        <th>Inventory Date</th>
+        <th>Number Assigned</th>
+        <th>Number in Stock</th>
+        <th>Other Details</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.asset_id)</td>
+            <td>@Html.DisplayFor(modelItem => item.inventory_date)</td>
+            <td>@Html.DisplayFor(modelItem => item.number_assigned)</td>
+            <td>@Html.DisplayFor(modelItem => item.number_in_stock)</td>
+            <td>@Html.DisplayFor(modelItem => item.other_details)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.it_asset_inventory_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.it_asset_inventory_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.it_asset_inventory_id })
+            </td>
+        </tr>
+    }
+</table>
